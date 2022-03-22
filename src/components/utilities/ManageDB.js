@@ -1,16 +1,28 @@
 const ManageDb = (element)=>{
     const {id} = element;
     let pId = "p"+id;
-    const quantity = +localStorage.getItem(pId)
+
+    // store data from local storage
+    let shoppingCart = JSON.parse(localStorage.getItem('shopping-cart'))
+    //if shopping cart does not exist then make an empty obj
+    if(!shoppingCart){
+        shoppingCart = {};
+
+    }
+    // get value for specific id
+    const quantity = shoppingCart[pId];
     
     if(quantity){
-        localStorage.setItem(pId,quantity+1);
+        shoppingCart[pId] = quantity+1;
 
     }
     else{
-        localStorage.setItem(pId,1);
+        shoppingCart[pId] = 1;
 
     }
+    localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
+    
+    
     
     
     
