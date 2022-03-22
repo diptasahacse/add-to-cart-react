@@ -3,7 +3,8 @@ import { useState } from 'react';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import Products from './components/Products/Products';
-import { ManageDb } from './components/utilities/ManageDB';
+import { add, remove } from './components/utilities/ManageDB';
+
 
 function App() {
   const [count,setCount] = useState([]);
@@ -11,20 +12,18 @@ function App() {
   
 
   const countListener = (product)=>{
-    
-
-
     setCount(previous => [...previous,product]);
     // console.log(count)
-    ManageDb(product);
-    
-    
+    add(product);
+}
+  const removeListener = (id)=>{
+    remove(id)
 }
   
   return (
     <div className="App">
       <Cart count={count}></Cart>
-      <Products listener={countListener}></Products>
+      <Products  removeListener={removeListener} addListener={countListener}></Products>
 
     </div>
   );

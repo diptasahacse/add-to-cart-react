@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Products.css'
 
-const Products = ({listener}) => {
+const Products = ({addListener,removeListener}) => {
 
     const [products,setProducts] = useState([]);
     useEffect(()=>{
@@ -17,7 +17,7 @@ const Products = ({listener}) => {
             <h1>All Products</h1>
             <div className='all-products'>
                 {
-                    products.map(product => <Product listener={listener} key={product.id} product={product}></Product>)
+                    products.map(product => <Product removeListener={removeListener} addListener={addListener} key={product.id} product={product}></Product>)
                 }
 
             </div>

@@ -1,4 +1,4 @@
-const ManageDb = (element)=>{
+const add = (element)=>{
     const {id} = element;
     let pId = "p"+id;
 
@@ -11,7 +11,7 @@ const ManageDb = (element)=>{
     }
     // get value for specific id
     const quantity = shoppingCart[pId];
-    
+
     if(quantity){
         shoppingCart[pId] = quantity+1;
 
@@ -21,12 +21,17 @@ const ManageDb = (element)=>{
 
     }
     localStorage.setItem('shopping-cart',JSON.stringify(shoppingCart));
-    
-    
-    
-    
-    
+
+}
+// remove
+const remove = (id) =>{
+    let pId = "p"+id;
+    let localStorageObj = JSON.parse(localStorage.getItem('shopping-cart'));
+    if(localStorageObj){
+        delete localStorageObj[pId];
+        localStorage.setItem('shopping-cart',JSON.stringify(localStorageObj))
+    }
     
 
 }
-export {ManageDb}
+export {add,remove}

@@ -1,8 +1,8 @@
 import React from 'react';
 import './Product.css'
 
-const Product = ({product,listener}) => {
-    const {title,image,description,price} = product;
+const Product = ({product,addListener,removeListener}) => {
+    const {title,image,description,price,id} = product;
     
 
     
@@ -12,7 +12,8 @@ const Product = ({product,listener}) => {
             <h3>{title}</h3>
             <p>{description.length > 150 ? description.slice(0,150)+" ...": description}</p>
             <p>${price}</p>
-            <button onClick={()=> listener(product)}>Add to Cart</button>
+            <button onClick={()=> addListener(product)}>Add to Cart</button>
+            <button onClick={()=> removeListener(id)}>Remove from Cart</button>
             
         </div>
     );
