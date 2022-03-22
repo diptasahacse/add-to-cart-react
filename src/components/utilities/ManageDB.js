@@ -28,8 +28,16 @@ const remove = (id) =>{
     let pId = "p"+id;
     let localStorageObj = JSON.parse(localStorage.getItem('shopping-cart'));
     if(localStorageObj){
-        delete localStorageObj[pId];
-        localStorage.setItem('shopping-cart',JSON.stringify(localStorageObj))
+        if(localStorageObj[pId]){
+            delete localStorageObj[pId];
+            localStorage.setItem('shopping-cart',JSON.stringify(localStorageObj))
+            
+
+        }
+        else{
+            alert("This item is not present in your cart")
+        }
+        
     }
     
 
