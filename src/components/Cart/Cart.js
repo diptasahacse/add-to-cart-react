@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './Cart.css'
 
 const Cart = ({count}) => {
+
     
     return (
         <div className='cart-section'>
             <h2>Cart Details</h2>
             <strong>Cart <sup>{count.length}</sup> </strong>
+            <h2 className='total-price'>${calculate(count)}</h2>
             <div className={count.length > 0 ? "cart-details":""}>
                 {
                     count.map((element,index) => <MakeList key={index} element={element} index={index}></MakeList>)
@@ -31,6 +33,17 @@ const MakeList = ({element,index})=>{
         </div>
         
     );
+
+}
+
+const calculate = (count) =>{
+    let totalPrice = 0;
+    if(count){
+        for (const iterator of count) {
+            totalPrice+=iterator.price;
+        }
+        return totalPrice
+    }
 
 }
 
