@@ -6,7 +6,7 @@ const Products = ({listener}) => {
 
     const [products,setProducts] = useState([]);
     useEffect(()=>{
-        fetch('https://fakestoreapi.com/products/')
+        fetch('fakedata.json')
         .then(res => res.json())
         .then(products => setProducts(products))
     },[products]);
