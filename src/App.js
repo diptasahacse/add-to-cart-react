@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import Products from './components/Products/Products';
+import { ManageDb } from './components/utilities/ManageDB';
 
 function App() {
   const [count,setCount] = useState([]);
@@ -15,6 +16,7 @@ function App() {
 
     setCount(previous => [...previous,product]);
     // console.log(count)
+    ManageDb(product);
     
     
 }
