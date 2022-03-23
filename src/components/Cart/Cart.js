@@ -37,13 +37,31 @@ const MakeList = ({element,index})=>{
 }
 
 const calculate = (count) =>{
-    let totalPrice = 0;
-    if(count){
-        for (const iterator of count) {
-            totalPrice+=iterator.price;
-        }
-        return totalPrice
-    }
+    // System 1
+    // let totalPrice = 0;
+    // if(count){
+    //     for (const iterator of count) {
+    //         totalPrice+=iterator.price;
+    //     }
+    //     return totalPrice
+    // }
+
+    // System 2
+    // function sum (initial,current){
+    //     return initial+current.price;
+
+    // }
+    // const totalSum = count.reduce(sum,0);
+    // return totalSum.toFixed(2);
+
+
+    // System 3
+    // const totalSum = count.reduce((initial,current)=>initial+current.price,0);
+    // return totalSum.toFixed(2);
+
+    // System 4
+    return count.reduce((initial,current)=>initial+current.price,0).toFixed(2);
+
 
 }
 

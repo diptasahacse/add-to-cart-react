@@ -5,6 +5,8 @@ h4{
     border: 1px solid goldenrod;
     max-height: 150px;
     overflow-y: scroll;
+    width: 60%;
+    margin: 0 auto;
 }
 .single-item{
     display: flex;
